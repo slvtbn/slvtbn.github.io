@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untuk Bocil</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Helvetica;
+      }
+
+      .box {
+        width: 200px;
+        height: 300px;
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        margin: 50px auto 0;
+        padding: 20px;
+        text-align: center;
+        background-color: rgb(250, 114, 250);
+        color: white;
+      }
+
+      .box h3 {
+        text-align: justify;
+        padding-top: 50px;
+      }
+
+      .btn {
+        padding-top: 50px;
+      }
+
+      .btn button {
+        padding: 5px 10px;
+        background-color: rgb(237, 253, 91);
+        border: none;
+        border-radius: 3px;
+      }
+
+      .btn button:hover {
+        cursor: pointer;
+        background-color: rgb(216, 238, 20);
+      }
+
+      .content {
+        display: flex;
+        width: 60%;
+        margin: 100px auto 0;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .kotak-besar {
+        display: flex;
+        width: 40%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 20px auto 0;
+      }
+
+      .kotak-kecil {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(250, 114, 250);
+        text-align: center;
+        line-height: 100px;
+        margin-bottom: 30px;
+        color: white;
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+      }
+
+      .kotak-kecil:hover {
+        background-color: rgb(230, 32, 230);
+        cursor: pointer;
+      }
+
+      .pesan {
+        width: 30%;
+        background-color: rgb(230, 32, 230);
+        margin: 100px auto 0;
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        padding: 20px;
+        text-align: justify;
+        color: white;
+      }
+
+      .pesan h4 {
+        margin-bottom: 40px;
+      }
+
+      .pesan p {
+        text-decoration: none;
+        color: white;
+        width: fit-content;
+        background-color: rgb(250, 114, 250);
+        padding: 10px 20px;
+        border-radius: 3px;
+      }
+
+      .pesan p:hover {
+        cursor: pointer;
+      }
+
+      /* styling responsive */
+      @media screen and (max-width: 768px) {
+        .box {
+          width: 80%;
+          margin-top: 300px;
+        }
+
+        .btn button {
+          padding: 15px 30px;
+        }
+
+        .content {
+          width: 80%;
+          margin-top: 80px;
+        }
+
+        .kotak-besar {
+          width: 70%;
+        }
+
+        .kotak-kecil {
+          width: 100%;
+        }
+
+        .pesan {
+          margin-top: 300px;
+          width: 80%;
+        }
+      }
+    </style>
+  </head>
+  <body onload="masukkanTanggal()">
+    <form action="" id="myForm">
+      <div class="box" id="box" style="display: none">
+        <h3>Halooo, kamu pacar aku ya??</h3>
+        <div class="btn">
+          <button type="button" id="iya" onclick="Iya()">Iyaaaa</button>
+          <button type="button" id="bukan" onclick="Bukan()">Bukan</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="content" id="content" style="display: none">
+      <h2>Silva Mau Bilang Sesuatu, Pilih Salah satu yaa</h2>
+      <div class="kotak-besar" id="kotak-besar">
+        <div class="kotak-kecil" onclick="kk1();">1</div>
+        <div class="kotak-kecil" onclick="kk2();">2</div>
+        <div class="kotak-kecil" onclick="kk3();">3</div>
+        <div class="kotak-kecil" onclick="kk4();">4</div>
+        <div class="kotak-kecil" onclick="kk5();">5</div>
+        <div class="kotak-kecil" onclick="kk6();">6</div>
+        <div class="kotak-kecil" onclick="kk7();" style="width: 100%">
+          Ini harus dipencet terakhir
+        </div>
+      </div>
+    </div>
+
+    <div class="pesan" id="pesan" style="display: none">
+      <h4 id="text"></h4>
+      <p onclick="kembali()" id="kembali">Pilih lagi</p>
+    </div>
+
+    <script>
+      function masukkanTanggal() {
+        let tanggal = prompt(
+          `Tanggal yg paling berkesan buat Riva ? tanggalnya aja yaaa`
+        );
+        if (tanggal == 21) {
+          console.log(tanggal);
+          document.getElementById("box").style.display = "block";
+        }
+      }
+
+      function Iya() {
+        let box = document.getElementById("box");
+        let content = document.getElementById("content");
+        let pesan = document.getElementById("pesan");
+
+        box.style.display = "none";
+        content.style.display = "block";
+      }
+
+      function Bukan() {
+        alert("Gaboleh Bohong!!!");
+      }
+
+      function kembali() {
+        content.style.display = "block";
+        pesan.style.display = "none";
+      }
+
+      function kk1() {
+        content.style.display = "none";
+        pesan.style.display = "block";
+        document.getElementById(
+          "text"
+        ).innerHTML = `Ayang, sa syang skali sm ko, dari prtma sa suka ko smpe skarang trprnah berubah, malah tmbah besar. sa bahagia, sa rasa ko sdh lebih dari cukup, tdk ada niatan untuk cari org baru, rmh baru, tmpat nyaman yg baru. cukup di ko sja`;
+      }
+      function kk2() {
+        content.style.display = "none";
+        pesan.style.display = "block";
+        document.getElementById(
+          "text"
+        ).innerHTML = `sa bersyukur punya ayang, salah satu hal yg paling sa syukuri dlm sa hidup, terserah org mau blg apa tentang tong, selama ada ko psti sa kuatt`;
+      }
+      function kk3() {
+        content.style.display = "none";
+        pesan.style.display = "block";
+        document.getElementById(
+          "text"
+        ).innerHTML = `sa slalu brdoa sm Tuhan, sa pengen ko bahagia, sa mau smua yg terbaik ada diko hidup, walaupun bukan sa yg temani asal ko bahagia sa belajar ikhlas, itu yg slalu sa doakan. tpi skarang tidak, sa sdh serakah, sa mau hidup sm ko, sa maunya koii, gatau Tuhan dengar ka tdk, tpi itu yg slalu sa minta`;
+      }
+      function kk4() {
+        content.style.display = "none";
+        pesan.style.display = "block";
+        document.getElementById(
+          "text"
+        ).innerHTML = `ayang maaf, kalo blum bisa jadi yg ko mau, blm bisa treat ko sebaik ko treat sa, maaf masih begini" sja jdi pacar dari awal smpe skarang trda perkembangan, sa masih berusaha, sabarr ee sa usaha biar jdi yg paling trbaik untuk ko. yg perlu ko ingat hanya satu kalo sa syng skali sm ridho`;
+      }
+      function kk5() {
+        content.style.display = "none";
+        pesan.style.display = "block";
+        document.getElementById(
+          "text"
+        ).innerHTML = `makasi sdh datang ke sa hidup, ajar sa banyak hal, tong bru 3 bulan tpi rasanya su lama skali, ayang makasi sdh buat sa rasa ditreat sebaik ini, makasi sdh berusaha sabar, mengalah, makasi krna sdh sayang skali sma sa, sa syang ko ridho, tdk akan prnah berubah`;
+      }
+      function kk6() {
+        content.style.display = "none";
+        pesan.style.display = "block";
+        document.getElementById(
+          "text"
+        ).innerHTML = `ini bukan last, masih banyak yg sa mau ngomong tp inti dari smuanya itu sa bahagia punya ko, sa bersyukur ko ada dlm sa hidup, sa pengen hidup selamanya sma ko, tong jalani ini sama-sama ee, pelan-pelan biar ga trlalu capekk, nikmati sja prosesnya. sa syang ridhoooooo`;
+      }
+      function kk7() {
+        let kembali = document.getElementById("kembali");
+        kembali.style.display = "none";
+        content.style.display = "none";
+        pesan.style.display = "block";
+        document.getElementById("text").innerHTML = `lopyuuuuuuuuuu`;
+      }
+    </script>
+  </body>
+</html>
